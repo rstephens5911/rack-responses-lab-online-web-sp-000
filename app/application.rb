@@ -3,15 +3,13 @@ class Application
   def call(env)
     resp = Rack::Response.new
 
-    time_now = Time.now.strftime('%H:%M')
-    time_compare_with = '12:00'
+    time_now = Time.now
 
-    if time_now > time_compare_with
+    if time_now > 12
       resp.write "Good Afternoon!"
     else
       resp.write "Good Morning!"
     end
-
     resp.finish
   end
 
